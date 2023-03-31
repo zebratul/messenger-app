@@ -11,7 +11,7 @@ class Server {
     this.server = http.Server(this.app);
     this.io = socketIo(this.server, {
       cors: {
-        origin: "http://localhost:3000",
+        origin: "*",
         methods: ["GET", "POST"],
         allowedHeaders: ["my-custom-header"],
         credentials: true
