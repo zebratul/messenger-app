@@ -10,14 +10,15 @@ class Server {
         this.app = express();
         this.server = http.Server(this.app);
         this.io = socketIo(this.server, {
-            cors: {
-                origin: "http://localhost:3000",
-                methods: ["GET", "POST"],
-                allowedHeaders: ["my-custom-header"],
-                credentials: true
-            }
+          cors: {
+            origin: "http://localhost:3000",
+            methods: ["GET", "POST"],
+            allowedHeaders: ["my-custom-header"],
+            credentials: true
+          },
+          transports: ['websocket']
         });
-        this.database = new Database();
+        tabase = new Database();
         this.database.connect();
         this.messageController = new MessageController(this.io, this.database);
         this.config();
