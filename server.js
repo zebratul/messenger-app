@@ -17,8 +17,8 @@ class Server {
             credentials: true
           },
           transports: ['websocket']
-        });
-        tabase = new Database();
+        }); 
+        this.database = new Database();
         this.database.connect();
         this.messageController = new MessageController(this.io, this.database);
         this.config();
