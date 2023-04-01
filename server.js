@@ -14,7 +14,7 @@ class Server {
       cors: {
         origin: "*",
         methods: ["GET", "POST"],
-        allowedHeaders: ["Content-Type", "Accept"],
+        allowedHeaders: ["Content-Type", "Accept", "Access-Control-Allow-Origin"],
         credentials: true
       }
     });
@@ -33,7 +33,7 @@ class Server {
       cors({
         origin: "*", // This will allow any origin to connect. Adjust it to your needs.
         methods: ["GET", "POST"],
-        allowedHeaders: ["Content-Type", "Accept"],
+        allowedHeaders: ["Content-Type", "Accept", "Access-Control-Allow-Origin"],
         credentials: true,
       })
     );
