@@ -14,7 +14,7 @@ class Server {
       cors: {
         origin: "*",
         methods: ["GET", "POST"],
-        allowedHeaders: ["my-custom-header"],
+        allowedHeaders: ["Content-Type", "Accept"],
         credentials: true
       }
     });
@@ -29,7 +29,14 @@ class Server {
     const bodyParser = require("body-parser");
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
-    this.app.use(cors());
+    this.app.use(
+      cors({
+        origin: "*", // This will allow any origin to connect. Adjust it to your needs.
+        methods: ["GET", "POST"],
+        allowedHeaders: ["Content-Type", "Accept"],
+        credentials: true,
+      })
+    );
   }
 
   routes() {
