@@ -7,6 +7,7 @@ const MessageController = require("./MessageController");
 
 class Server {
   constructor() {
+    this.port = process.env.PORT || 5000;
     this.app = express();
     this.server = http.Server(this.app);
     this.io = socketIo(this.server, {
@@ -51,6 +52,6 @@ class Server {
 }
 
 const server = new Server();
-server.server.listen(5000, () => {
-  console.log(`Listening on port ${5000}...`);
+server.server.listen(server.port, () => {
+  console.log(`Listening on port ${server.port}...`);
 });
